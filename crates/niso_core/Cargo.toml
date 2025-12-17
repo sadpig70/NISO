@@ -1,0 +1,15 @@
+[package]
+name = "niso_core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "NISO Core - Foundation types, circuits, and topology"
+
+[dependencies]
+thiserror.workspace = true
+serde = { workspace = true }
+serde_json.workspace = true
+
+[dev-dependencies]
+approx.workspace = true

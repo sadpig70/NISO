@@ -1,0 +1,52 @@
+[workspace]
+members = [
+    "crates/niso_core",
+    # Phase 1 Sprint 2
+    "crates/niso_noise",
+    "crates/niso_schedule",
+    # Phase 2
+    "crates/niso_calibration",
+    "crates/niso_backend",
+    "crates/niso_tqqc",
+    # Phase 3
+    "crates/niso_engine",
+    "crates/niso_bench",
+    # Phase 4
+    "crates/niso_python",
+    # Phase 5: IBM Hardware
+    "crates/niso_qiskit",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Jung Wook Yang <sadpig70@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/jungwookyang/niso"
+description = "NISQ Integrated System Optimizer - Rust implementation of TQQC"
+
+[workspace.dependencies]
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Numerics
+num-complex = "0.4"
+rand = "0.8"
+rand_chacha = "0.3"
+
+# Python bindings (Phase 3)
+pyo3 = { version = "0.20", features = ["extension-module"] }
+
+# Testing
+approx = "0.5"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1

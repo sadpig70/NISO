@@ -1,0 +1,21 @@
+[package]
+name = "niso_engine"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "NISO Engine - Integrated quantum optimization pipeline"
+
+[dependencies]
+niso_core = { path = "../niso_core" }
+niso_noise = { path = "../niso_noise" }
+niso_schedule = { path = "../niso_schedule" }
+niso_calibration = { path = "../niso_calibration" }
+niso_backend = { path = "../niso_backend" }
+niso_tqqc = { path = "../niso_tqqc" }
+thiserror.workspace = true
+serde = { workspace = true }
+serde_json.workspace = true
+
+[dev-dependencies]
+approx.workspace = true

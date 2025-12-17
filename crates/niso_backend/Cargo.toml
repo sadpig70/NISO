@@ -1,0 +1,19 @@
+[package]
+name = "niso_backend"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "NISO Backend - Quantum backend abstraction and execution"
+
+[dependencies]
+niso_core = { path = "../niso_core" }
+niso_noise = { path = "../niso_noise" }
+niso_calibration = { path = "../niso_calibration" }
+thiserror.workspace = true
+serde = { workspace = true }
+serde_json.workspace = true
+rand = "0.8"
+
+[dev-dependencies]
+approx.workspace = true

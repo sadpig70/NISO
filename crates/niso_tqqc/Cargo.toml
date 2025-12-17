@@ -1,0 +1,19 @@
+[package]
+name = "niso_tqqc"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "NISO TQQC - Time-Quantized Quantum Computing engine"
+
+[dependencies]
+niso_core = { path = "../niso_core" }
+niso_noise = { path = "../niso_noise" }
+niso_backend = { path = "../niso_backend" }
+thiserror.workspace = true
+serde = { workspace = true }
+serde_json.workspace = true
+rand = "0.8"
+
+[dev-dependencies]
+approx.workspace = true

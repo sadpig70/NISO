@@ -1,0 +1,26 @@
+[package]
+name = "niso_python"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "NISO Python bindings via PyO3"
+
+[lib]
+name = "niso"
+crate-type = ["cdylib"]
+
+[dependencies]
+niso_core = { path = "../niso_core" }
+niso_noise = { path = "../niso_noise" }
+niso_calibration = { path = "../niso_calibration" }
+niso_backend = { path = "../niso_backend" }
+niso_tqqc = { path = "../niso_tqqc" }
+niso_engine = { path = "../niso_engine" }
+niso_bench = { path = "../niso_bench" }
+niso_schedule = { path = "../niso_schedule" }
+pyo3 = { workspace = true }
+serde_json.workspace = true
+
+[dev-dependencies]
+approx.workspace = true

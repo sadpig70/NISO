@@ -1,0 +1,17 @@
+[package]
+name = "niso_calibration"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "NISO Calibration - Hardware calibration data management"
+
+[dependencies]
+niso_core = { path = "../niso_core" }
+niso_noise = { path = "../niso_noise" }
+thiserror.workspace = true
+serde = { workspace = true }
+serde_json.workspace = true
+
+[dev-dependencies]
+approx.workspace = true

@@ -1,0 +1,16 @@
+[package]
+name = "niso_noise"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "NISO Noise - Noise models and gate timing for NISQ systems"
+
+[dependencies]
+niso_core = { path = "../niso_core" }
+thiserror.workspace = true
+serde = { workspace = true }
+serde_json.workspace = true
+
+[dev-dependencies]
+approx.workspace = true
