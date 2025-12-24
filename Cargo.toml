@@ -41,7 +41,7 @@ rand = "0.8"
 rand_chacha = "0.3"
 
 # Python bindings (Phase 3)
-pyo3 = { version = "0.20", features = ["extension-module"] }
+pyo3 = { version = "0.20", features = ["abi3-py310"] }
 
 # Testing
 approx = "0.5"

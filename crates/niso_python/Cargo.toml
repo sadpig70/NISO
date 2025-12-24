@@ -10,6 +10,10 @@ description = "NISO Python bindings via PyO3"
 name = "niso"
 crate-type = ["cdylib"]
 
+[features]
+default = ["extension-module"]
+extension-module = ["pyo3/extension-module"]
+
 [dependencies]
 niso_core = { path = "../niso_core" }
 niso_noise = { path = "../niso_noise" }

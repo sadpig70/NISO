@@ -48,7 +48,9 @@ jobs:
       - name: Test
         env:
           PYO3_PYTHON: /usr/bin/python3
-        run: cargo test
+        run: |
+          cargo test --workspace --exclude niso_python
+          cargo test -p niso_python --no-default-features
 
       - name: Clippy
         env:
