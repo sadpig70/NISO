@@ -18,6 +18,16 @@ jobs:
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
         
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Python dev libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-dev
+        
       - name: Cache cargo
         uses: actions/cache@v4
         with:
@@ -31,12 +41,18 @@ jobs:
           restore-keys: ${{ runner.os }}-cargo-
 
       - name: Build
+        env:
+          PYO3_PYTHON: /usr/bin/python3
         run: cargo build --release
 
       - name: Test
+        env:
+          PYO3_PYTHON: /usr/bin/python3
         run: cargo test
 
       - name: Clippy
+        env:
+          PYO3_PYTHON: /usr/bin/python3
         run: cargo clippy -- -D warnings
 
       - name: Format Check
