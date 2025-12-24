@@ -11,8 +11,7 @@ use serde::{Deserialize, Serialize};
 use std::fmt;
 
 /// Optimization mode
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
-#[derive(Default)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
 pub enum OptimizationMode {
     /// Full TQQC optimization
     #[default]
@@ -25,10 +24,8 @@ pub enum OptimizationMode {
     Custom,
 }
 
-
 /// Hardware target
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
-#[derive(Default)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
 pub enum HardwareTarget {
     /// IBM superconducting qubits
     #[default]
@@ -42,7 +39,6 @@ pub enum HardwareTarget {
     /// Custom hardware
     Custom,
 }
-
 
 /// Unified NISO configuration
 /// Gantree: NisoConfig // 통합 설정

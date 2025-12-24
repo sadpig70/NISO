@@ -232,15 +232,14 @@ impl IbmBackend {
             // Extract 2-qubit errors
             if let Some(ref gates) = props.gates {
                 for gate in gates {
-                    if (gate.gate == "cx" || gate.gate == "ecr")
-                        && gate.qubits.len() >= 2 {
-                            for param in &gate.parameters {
-                                if param.name == "gate_error" {
-                                    cal.gate_errors_2q
-                                        .insert((gate.qubits[0], gate.qubits[1]), param.value);
-                                }
+                    if (gate.gate == "cx" || gate.gate == "ecr") && gate.qubits.len() >= 2 {
+                        for param in &gate.parameters {
+                            if param.name == "gate_error" {
+                                cal.gate_errors_2q
+                                    .insert((gate.qubits[0], gate.qubits[1]), param.value);
                             }
                         }
+                    }
                 }
             }
 
