@@ -187,9 +187,7 @@ impl GateTimes {
             if qubits.is_empty() {
                 // Global operation (MeasureAll, Barrier)
                 let max_time = qubit_available.iter().cloned().fold(0.0, f64::max);
-                for t in &mut qubit_available {
-                    *t = max_time + duration;
-                }
+                qubit_available.fill(max_time + duration);
             } else {
                 // Find latest available time among gate qubits
                 let start_time = qubits

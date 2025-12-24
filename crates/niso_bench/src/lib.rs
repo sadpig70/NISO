@@ -5,18 +5,6 @@
 //! ## Gantree Architecture
 //!
 //! ```text
-//! niso_bench // L8: Benchmark (완료)
-//!     CircuitGenerator // 회로 생성기 (완료)
-//!         ghz(), qft(), bell()
-//!         tqqc_parity(), hea(), random()
-//!         parity_oscillation(), depth_scaling()
-//!     BenchSuite // 벤치마크 스위트 (완료)
-//!         bench_tqqc(), bench_niso()
-//!         run_qubit_scaling(), run_noise_scaling()
-//!         run_all(), run_quick()
-//!     Reporter // 결과 리포팅 (완료)
-//!         to_markdown(), to_json(), to_csv()
-//!         comparison_report(), qubit_scaling_report()
 //! ```
 //!
 //! ## Quick Start
@@ -75,13 +63,13 @@
 // Module Declarations
 // ============================================================================
 
-/// Circuit generators (Gantree: L8_Benchmark → Generators)
+/// Circuit generators (Gantree: L8_Benchmark ??Generators)
 pub mod generators;
 
-/// Benchmark suite (Gantree: L8_Benchmark → BenchSuite)
+/// Benchmark suite (Gantree: L8_Benchmark ??BenchSuite)
 pub mod suite;
 
-/// Reporting (Gantree: L8_Benchmark → Reporter)
+/// Reporting (Gantree: L8_Benchmark ??Reporter)
 pub mod reporter;
 
 // ============================================================================
@@ -96,7 +84,7 @@ pub use suite::{BenchSuite, BenchmarkResult, BenchmarkStatistics};
 // Prelude
 // ============================================================================
 
-/// Convenient imports for common use cases
+// Convenient imports below
 pub mod prelude {
     //! Prelude module for convenient imports
     //!

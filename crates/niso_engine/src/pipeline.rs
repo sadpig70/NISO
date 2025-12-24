@@ -232,7 +232,7 @@ impl Pipeline {
         self.state
             .config
             .validate()
-            .map_err(|e| NisoError::InvalidGateParameter(e))?;
+            .map_err(NisoError::InvalidGateParameter)?;
 
         // Create backend
         let noise_model = self.state.config.to_noise_model();

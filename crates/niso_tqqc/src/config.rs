@@ -11,9 +11,11 @@ use std::fmt;
 /// Significance test mode
 /// Gantree: SigMode // 유의성 모드
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Default)]
 pub enum SigMode {
     /// Fixed z-critical threshold
     /// Gantree: Fixed // 고정
+    #[default]
     Fixed,
 
     /// Adaptive threshold based on noise/shots
@@ -21,18 +23,15 @@ pub enum SigMode {
     Adaptive,
 }
 
-impl Default for SigMode {
-    fn default() -> Self {
-        Self::Fixed
-    }
-}
 
 /// Delta accumulation mode
 /// Gantree: DeltaMode // 델타 모드
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Default)]
 pub enum DeltaMode {
     /// Accumulate delta across iterations
     /// Gantree: Track // 누적
+    #[default]
     Track,
 
     /// Reset delta each iteration
@@ -40,11 +39,6 @@ pub enum DeltaMode {
     Reset,
 }
 
-impl Default for DeltaMode {
-    fn default() -> Self {
-        Self::Track
-    }
-}
 
 /// TQQC configuration
 /// Gantree: TqqcConfig // 설정

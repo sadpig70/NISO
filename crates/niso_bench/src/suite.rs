@@ -296,11 +296,11 @@ impl BenchSuite {
             println!("=== Running Quick Benchmark ===");
         }
 
-        let mut results = Vec::new();
-
         // Just a few quick benchmarks
-        results.push(self.bench_tqqc("quick_5q", 5, 0.02, 5));
-        results.push(self.bench_tqqc("quick_7q", 7, 0.02, 5));
+        let results = vec![
+            self.bench_tqqc("quick_5q", 5, 0.02, 5),
+            self.bench_tqqc("quick_7q", 7, 0.02, 5),
+        ];
 
         results
     }

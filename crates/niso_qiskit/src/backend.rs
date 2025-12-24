@@ -232,8 +232,8 @@ impl IbmBackend {
             // Extract 2-qubit errors
             if let Some(ref gates) = props.gates {
                 for gate in gates {
-                    if gate.gate == "cx" || gate.gate == "ecr" {
-                        if gate.qubits.len() >= 2 {
+                    if (gate.gate == "cx" || gate.gate == "ecr")
+                        && gate.qubits.len() >= 2 {
                             for param in &gate.parameters {
                                 if param.name == "gate_error" {
                                     cal.gate_errors_2q
@@ -241,7 +241,6 @@ impl IbmBackend {
                                 }
                             }
                         }
-                    }
                 }
             }
 
@@ -279,7 +278,7 @@ impl IbmBackend {
         // Validate circuit
         self.transpiler
             .validate(circuit)
-            .map_err(|e| IbmBackendError::Transpilation(e))?;
+            .map_err(IbmBackendError::Transpilation)?;
 
         // Transpile to QASM
         let qasm = if self.use_qasm3 {
@@ -330,7 +329,7 @@ impl IbmBackend {
         // Validate and transpile
         self.transpiler
             .validate(circuit)
-            .map_err(|e| IbmBackendError::Transpilation(e))?;
+            .map_err(IbmBackendError::Transpilation)?;
 
         let qasm = if self.use_qasm3 {
             self.transpiler.to_qasm3(circuit)
@@ -398,7 +397,7 @@ impl IbmBackend {
             .map(|circuit| {
                 self.transpiler
                     .validate(circuit)
-                    .map_err(|e| IbmBackendError::Transpilation(e))?;
+                    .map_err(IbmBackendError::Transpilation)?;
 
                 Ok(if self.use_qasm3 {
                     self.transpiler.to_qasm3(circuit)
@@ -462,7 +461,7 @@ impl IbmBackend {
             .map(|circuit| {
                 self.transpiler
                     .validate(circuit)
-                    .map_err(|e| IbmBackendError::Transpilation(e))?;
+                    .map_err(IbmBackendError::Transpilation)?;
 
                 Ok(if self.use_qasm3 {
                     self.transpiler.to_qasm3(circuit)

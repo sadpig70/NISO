@@ -24,7 +24,7 @@ impl Parity {
 
     /// Check if bitstring has even parity
     pub fn is_even(bitstring: &str) -> bool {
-        Self::popcount(bitstring) % 2 == 0
+        Self::popcount(bitstring).is_multiple_of(2)
     }
 
     /// Check if bitstring has odd parity

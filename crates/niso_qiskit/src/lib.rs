@@ -4,25 +4,6 @@
 //!
 //! ## Gantree Architecture
 //!
-//! ```text
-//! niso_qiskit // L10: IBM Integration
-//!     Auth // 인증 관리
-//!         IbmCredentials
-//!         IbmChannel
-//!     Client // REST API 클라이언트
-//!         IbmClient
-//!         BackendInfo, BackendStatus
-//!     Job // Job 관리
-//!         JobManager
-//!         IbmJob
-//!         JobStatus
-//!     Transpiler // 회로 변환
-//!         Transpiler
-//!         to_qasm3(), to_qasm2()
-//!     Backend // 백엔드 구현
-//!         IbmBackend
-//!         list_backends()
-//! ```
 //!
 //! ## Quick Start
 //!
@@ -85,19 +66,19 @@
 // Module Declarations
 // ============================================================================
 
-/// Authentication (Gantree: L10_Qiskit → Auth)
+/// Authentication (Gantree: L10_Qiskit ??Auth)
 pub mod auth;
 
-/// REST API client (Gantree: L10_Qiskit → Client)
+/// REST API client (Gantree: L10_Qiskit ??Client)
 pub mod client;
 
-/// Job management (Gantree: L10_Qiskit → Job)
+/// Job management (Gantree: L10_Qiskit ??Job)
 pub mod job;
 
-/// Circuit transpilation (Gantree: L10_Qiskit → Transpiler)
+/// Circuit transpilation (Gantree: L10_Qiskit ??Transpiler)
 pub mod transpiler;
 
-/// IBM backend implementation (Gantree: L10_Qiskit → Backend)
+/// IBM backend implementation (Gantree: L10_Qiskit ??Backend)
 pub mod backend;
 
 // ============================================================================
@@ -119,7 +100,8 @@ pub use transpiler::{Transpiler, TranspilerConfig, IBM_BASIS_GATES};
 // Prelude
 // ============================================================================
 
-/// Convenient imports for common use cases
+// Convenient imports below
+/// Prelude module for convenient imports.
 pub mod prelude {
     pub use crate::auth::{IbmChannel, IbmCredentials};
     pub use crate::backend::{list_backends, recommend_backend, IbmBackend};

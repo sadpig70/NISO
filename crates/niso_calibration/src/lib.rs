@@ -4,16 +4,6 @@
 //!
 //! ## Gantree Architecture
 //!
-//! ```text
-//! niso_calibration // L3: Calibration (완료)
-//!     CalibrationInfo // 캘리브레이션 데이터 (완료)
-//!         backend_name, timestamp
-//!         t1_times, t2_times, gate_errors, readout_errors
-//!         to_noise_model(), to_topology(), best_qubits()
-//!     CalibrationCache // TTL 캐싱 (완료)
-//!         get(), set(), invalidate()
-//!         get_or_fetch() - 캐시 또는 조회
-//! ```
 //!
 //! ## Quick Start
 //!
@@ -54,10 +44,10 @@
 // Module Declarations
 // ============================================================================
 
-/// Calibration information (Gantree: L3_Calibration → CalibrationInfo)
+/// Calibration information (Gantree: L3_Calibration ??CalibrationInfo)
 pub mod calibration_info;
 
-/// Calibration caching (Gantree: L3_Calibration → CalibrationCache)
+/// Calibration caching (Gantree: L3_Calibration ??CalibrationCache)
 pub mod calibration_cache;
 
 // ============================================================================
@@ -71,7 +61,7 @@ pub use calibration_info::CalibrationInfo;
 // Prelude
 // ============================================================================
 
-/// Convenient imports for common use cases
+// Convenient imports below
 pub mod prelude {
     //! Prelude module for convenient imports
     //!

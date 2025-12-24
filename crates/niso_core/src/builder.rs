@@ -254,8 +254,8 @@ impl CircuitBuilder {
     /// Gantree: ry_layer(self, angles) -> Self // Ry 레이어
     pub fn ry_layer(mut self, angles: &[Angle]) -> Self {
         let n = self.circuit.num_qubits().min(angles.len());
-        for i in 0..n {
-            let _ = self.circuit.add_gate(Gate::Ry(i, angles[i]));
+        for (i, &angle) in angles.iter().enumerate().take(n) {
+            let _ = self.circuit.add_gate(Gate::Ry(i, angle));
         }
         self
     }
@@ -264,8 +264,8 @@ impl CircuitBuilder {
     /// Gantree: rz_layer(self, angles) -> Self // Rz 레이어
     pub fn rz_layer(mut self, angles: &[Angle]) -> Self {
         let n = self.circuit.num_qubits().min(angles.len());
-        for i in 0..n {
-            let _ = self.circuit.add_gate(Gate::Rz(i, angles[i]));
+        for (i, &angle) in angles.iter().enumerate().take(n) {
+            let _ = self.circuit.add_gate(Gate::Rz(i, angle));
         }
         self
     }
@@ -467,7 +467,7 @@ mod tests {
 
     #[test]
     fn test_builder_basis_transform() {
-        let basis = BasisString::from_str("XYZ").unwrap();
+        let basis = BasisString::parse("XYZ").unwrap();
         let circuit = CircuitBuilder::new(3).apply_basis(&basis).build();
 
         // X: H (1 gate)

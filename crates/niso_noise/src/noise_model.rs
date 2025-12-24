@@ -119,7 +119,7 @@ impl NoiseModel {
     /// Create from effective depolarizing error
     /// Based on TQQC noise model convention
     pub fn from_depol(p_depol: f64) -> NisoResult<Self> {
-        if p_depol < 0.0 || p_depol > 0.06 {
+        if !(0.0..=0.06).contains(&p_depol) {
             return Err(NisoError::InvalidNoiseLevel(p_depol));
         }
 

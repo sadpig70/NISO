@@ -255,7 +255,7 @@ pub struct BasisString {
 
 impl BasisString {
     /// Create from string
-    pub fn from_str(s: &str) -> NisoResult<Self> {
+    pub fn parse(s: &str) -> NisoResult<Self> {
         let bases: Result<Vec<Basis>, _> = s.chars().map(Basis::from_char).collect();
         Ok(Self { bases: bases? })
     }
@@ -302,15 +302,18 @@ impl BasisString {
         self.bases.iter()
     }
 
-    /// Convert to string
-    pub fn to_string(&self) -> String {
+    /// Convert to string representation
+    pub fn as_string(&self) -> String {
         self.bases.iter().map(|b| b.to_char()).collect()
     }
 }
 
 impl fmt::Display for BasisString {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{}", self.to_string())
+        for b in &self.bases {
+            write!(f, "{}", b.to_char())?;
+        }
+        Ok(())
     }
 }
 
@@ -365,7 +368,7 @@ mod tests {
 
     #[test]
     fn test_basis_string() {
-        let bs = BasisString::from_str("XYZXYZ").unwrap();
+        let bs = BasisString::parse("XYZXYZ").unwrap();
         assert_eq!(bs.len(), 6);
         assert_eq!(bs.get(0), Some(Basis::X));
         assert_eq!(bs.get(1), Some(Basis::Y));
@@ -375,6 +378,6 @@ mod tests {
     #[test]
     fn test_basis_string_uniform() {
         let bs = BasisString::all_x(7);
-        assert_eq!(bs.to_string(), "XXXXXXX");
+        assert_eq!(bs.as_string(), "XXXXXXX");
     }
 }

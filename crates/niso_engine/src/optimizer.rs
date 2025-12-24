@@ -183,7 +183,7 @@ impl NisoOptimizer {
         // Validate configuration
         self.config
             .validate()
-            .map_err(|e| NisoError::InvalidGateParameter(e))?;
+            .map_err(NisoError::InvalidGateParameter)?;
 
         if self.verbose {
             println!("Starting NISO optimization: {}", self.config);

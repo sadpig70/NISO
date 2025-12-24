@@ -301,6 +301,7 @@ impl SimulatorBackend {
         }
     }
 
+    #[allow(clippy::needless_range_loop)]
     fn apply_cz(&self, state: &mut [Complex], q1: usize, q2: usize, n: usize) {
         let mask1 = 1 << q1;
         let mask2 = 1 << q2;

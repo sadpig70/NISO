@@ -4,20 +4,6 @@
 //!
 //! ## Gantree Architecture
 //!
-//! ```text
-//! niso_schedule // L4: Scheduling (완료)
-//!     ScheduledGate // 스케줄된 게이트 (완료)
-//!         gate_idx, gate, start_time_ns, end_time_ns
-//!         duration(), qubits(), overlaps()
-//!     CircuitSchedule // 전체 스케줄 (완료)
-//!         gates, total_duration_ns, num_qubits
-//!         idle_times(), parallelism_factor()
-//!         critical_path_depth(), estimate_decoherence()
-//!     Scheduler // 스케줄러 (완료)
-//!         compute_asap() - ASAP 스케줄링
-//!         estimate_decoherence() - 디코히어런스 추정
-//!         score_circuit() - 회로 품질 점수
-//! ```
 //!
 //! ## Quick Start
 //!
@@ -71,13 +57,13 @@
 // Module Declarations
 // ============================================================================
 
-/// Scheduled gate with timing (Gantree: L4_Scheduling → ScheduledGate)
+/// Scheduled gate with timing (Gantree: L4_Scheduling ??ScheduledGate)
 pub mod scheduled_gate;
 
-/// Circuit schedule (Gantree: L4_Scheduling → CircuitSchedule)
+/// Circuit schedule (Gantree: L4_Scheduling ??CircuitSchedule)
 pub mod circuit_schedule;
 
-/// Scheduler algorithms (Gantree: L4_Scheduling → Scheduler)
+/// Scheduler algorithms (Gantree: L4_Scheduling ??Scheduler)
 pub mod scheduler;
 
 // ============================================================================
@@ -92,7 +78,7 @@ pub use scheduler::Scheduler;
 // Prelude
 // ============================================================================
 
-/// Convenient imports for common use cases
+// Convenient imports below
 pub mod prelude {
     //! Prelude module for convenient imports
     //!

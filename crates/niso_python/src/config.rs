@@ -265,7 +265,7 @@ impl PyNisoConfig {
     pub fn validate(&self) -> PyResult<()> {
         self.inner
             .validate()
-            .map_err(|e| pyo3::exceptions::PyValueError::new_err(e))
+            .map_err(pyo3::exceptions::PyValueError::new_err)
     }
 
     /// Convert to JSON string

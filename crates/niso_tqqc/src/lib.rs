@@ -5,28 +5,6 @@
 //! ## Gantree Architecture
 //!
 //! ```text
-//! niso_tqqc // L5: TQQC Engine (완료)
-//!     TqqcConfig // 설정 (완료)
-//!         qubits, points, shots, noise
-//!         step_amp, inner_max, dynamic_inner
-//!         use_statistical_test, sig_mode, sig_level
-//!     Convergence // 수렴 판단 (완료)
-//!         window, threshold_abs, threshold_cum
-//!         depth_correction() - 깊이 보정
-//!         check() - 수렴 체크
-//!     DynamicInner // 적응형 내부 반복 (완료)
-//!         compute_count() - 반복 수 계산
-//!         compute_step() - 감쇠 스텝
-//!     StatisticalTest // z-test (완료)
-//!         compute_z() - z값 계산
-//!         z_critical() - 임계값
-//!         test() - 유의성 검정
-//!     Parity // 패리티 계산 (완료)
-//!         popcount(), p_even(), expectation()
-//!         build_circuit() - TQQC 회로 생성
-//!     TqqcEngine // 최적화 엔진 (완료)
-//!         optimize() - 메인 최적화
-//!         TqqcResult - 결과
 //! ```
 //!
 //! ## Quick Start
@@ -67,19 +45,19 @@
 // Module Declarations
 // ============================================================================
 
-/// TQQC configuration (Gantree: L5_TQQC → TqqcConfig)
+/// TQQC configuration (Gantree: L5_TQQC ??TqqcConfig)
 pub mod config;
 
-/// Convergence and dynamic inner (Gantree: L5_TQQC → Convergence, DynamicInner)
+/// Convergence and dynamic inner (Gantree: L5_TQQC ??Convergence, DynamicInner)
 pub mod convergence;
 
-/// Statistical testing (Gantree: L5_TQQC → StatisticalTest)
+/// Statistical testing (Gantree: L5_TQQC ??StatisticalTest)
 pub mod stat_test;
 
-/// Parity calculation (Gantree: L5_TQQC → Parity)
+/// Parity calculation (Gantree: L5_TQQC ??Parity)
 pub mod parity;
 
-/// TQQC engine (Gantree: L5_TQQC → TqqcEngine)
+/// TQQC engine (Gantree: L5_TQQC ??TqqcEngine)
 pub mod engine;
 
 // ============================================================================
@@ -96,7 +74,7 @@ pub use stat_test::{Direction, StatisticalTest, TestResult};
 // Prelude
 // ============================================================================
 
-/// Convenient imports for common use cases
+// Convenient imports below
 pub mod prelude {
     //! Prelude module for convenient imports
     //!
@@ -195,8 +173,8 @@ mod tests {
     fn test_dynamic_inner_formula() {
         let di = DynamicInner::default_tqqc();
 
-        // Formula: inner_count = 1 + 2 * floor(|g| / τ)
-        // With g=0.04, τ=0.02: 1 + 2*2 = 5
+        // Formula: inner_count = 1 + 2 * floor(|g| / ?)
+        // With g=0.04, ?=0.02: 1 + 2*2 = 5
         let count = di.compute_count(0.04, 0.02);
         assert_eq!(count, 5);
 

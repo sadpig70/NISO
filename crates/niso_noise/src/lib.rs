@@ -84,9 +84,8 @@ pub use noise_vector::{NoiseVector, NoiseVectorSet};
 // Prelude
 // ============================================================================
 
-/// Convenient imports for common use cases
 pub mod prelude {
-    //! Prelude module for convenient imports
+    //! Prelude module for convenient imports.
     //!
     //! ```rust
     //! use niso_noise::prelude::*;

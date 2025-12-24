@@ -419,9 +419,10 @@ impl fmt::Display for Gate {
 // ============================================================================
 
 /// Entangler gate type for TQQC circuits
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, Default)]
 pub enum EntanglerType {
     /// CNOT (CX) gates
+    #[default]
     Cx,
     /// CZ gates
     Cz,
@@ -437,18 +438,12 @@ impl EntanglerType {
     }
 
     /// Parse from string
-    pub fn from_str(s: &str) -> Option<Self> {
+    pub fn parse(s: &str) -> Option<Self> {
         match s.to_lowercase().as_str() {
             "cx" | "cnot" => Some(EntanglerType::Cx),
             "cz" => Some(EntanglerType::Cz),
             _ => None,
         }
-    }
-}
-
-impl Default for EntanglerType {
-    fn default() -> Self {
-        EntanglerType::Cx
     }
 }
 

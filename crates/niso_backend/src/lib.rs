@@ -4,19 +4,6 @@
 //!
 //! ## Gantree Architecture
 //!
-//! ```text
-//! niso_backend // L6: Backend (완료)
-//!     ExecutionResult // 실행 결과 (완료)
-//!         counts, shots, metadata
-//!         parity_expectation(), p_even(), p_odd()
-//!     Backend trait // 백엔드 인터페이스 (완료)
-//!         execute(), execute_batch()
-//!         calibration(), is_simulator()
-//!     SimulatorBackend // 시뮬레이터 (완료)
-//!         ideal(), from_depol()
-//!         state vector simulation
-//!         depolarizing + readout noise
-//! ```
 //!
 //! ## Quick Start
 //!
@@ -68,7 +55,7 @@
 /// Execution types and backend trait (Gantree: L6_Backend)
 pub mod execution;
 
-/// Simulator backend (Gantree: L6_Backend → SimulatorBackend)
+/// Simulator backend (Gantree: L6_Backend ??SimulatorBackend)
 pub mod simulator;
 
 // ============================================================================
@@ -82,7 +69,7 @@ pub use simulator::SimulatorBackend;
 // Prelude
 // ============================================================================
 
-/// Convenient imports for common use cases
+// Convenient imports below
 pub mod prelude {
     //! Prelude module for convenient imports
     //!
@@ -112,7 +99,7 @@ mod tests {
 
         let result = backend.execute(&circuit, 10000).unwrap();
 
-        // Bell state: (|00⟩ + |11⟩)/√2
+        // Bell state: (|00??+ |11??/??
         let p00 = result.probability("00");
         let p11 = result.probability("11");
 
@@ -122,15 +109,14 @@ mod tests {
 
     #[test]
     fn test_ghz_state_parity() {
-        // Use 4 qubits for GHZ: |0000⟩ + |1111⟩
-        // Both have even parity (0 ones, 4 ones)
+        // Use 4 qubits for GHZ: |0000??+ |1111??        // Both have even parity (0 ones, 4 ones)
         let backend = SimulatorBackend::ideal(4).with_seed(42);
 
         let circuit = CircuitBuilder::new(4).h(0).cx_chain().build();
 
         let result = backend.execute(&circuit, 1000).unwrap();
 
-        // GHZ: (|0000⟩ + |1111⟩)/√2
+        // GHZ: (|0000??+ |1111??/??
         // Both states have even parity (0 and 4 ones)
         let parity = result.parity_expectation();
         assert!(parity > 0.9, "GHZ parity should be ~1, got {}", parity);
@@ -178,13 +164,13 @@ mod tests {
     fn test_rotation_gates() {
         let backend = SimulatorBackend::ideal(1).with_seed(42);
 
-        // Rx(π) should flip |0⟩ to |1⟩
+        // Rx(PI) should flip |0> to |1>
         let circuit = CircuitBuilder::new(1).rx(0, PI).build();
 
         let result = backend.execute(&circuit, 1000).unwrap();
         assert!(result.probability("1") > 0.99);
 
-        // Ry(π) should flip |0⟩ to |1⟩
+        // Ry(PI) should flip |0> to |1>
         let circuit = CircuitBuilder::new(1).ry(0, PI).build();
 
         let result = backend.execute(&circuit, 1000).unwrap();

@@ -12,8 +12,10 @@ use std::fmt;
 
 /// Optimization mode
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Default)]
 pub enum OptimizationMode {
     /// Full TQQC optimization
+    #[default]
     Full,
     /// Quick optimization (fewer iterations)
     Quick,
@@ -23,16 +25,13 @@ pub enum OptimizationMode {
     Custom,
 }
 
-impl Default for OptimizationMode {
-    fn default() -> Self {
-        Self::Full
-    }
-}
 
 /// Hardware target
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Default)]
 pub enum HardwareTarget {
     /// IBM superconducting qubits
+    #[default]
     IbmSuperconducting,
     /// Trapped ion
     TrappedIon,
@@ -44,11 +43,6 @@ pub enum HardwareTarget {
     Custom,
 }
 
-impl Default for HardwareTarget {
-    fn default() -> Self {
-        Self::IbmSuperconducting
-    }
-}
 
 /// Unified NISO configuration
 /// Gantree: NisoConfig // 통합 설정

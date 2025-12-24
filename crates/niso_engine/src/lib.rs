@@ -5,20 +5,6 @@
 //! ## Gantree Architecture
 //!
 //! ```text
-//! niso_engine // L7: Integration (완료)
-//!     NisoConfig // 통합 설정 (완료)
-//!         qubits, mode, hardware
-//!         TQQC params, hardware params
-//!         to_tqqc_config(), to_noise_model()
-//!     NisoOptimizer // 통합 최적화 (완료)
-//!         optimize() - 원클릭 최적화
-//!         measure_parity() - 패리티 측정
-//!         calibrate() - 캘리브레이션
-//!     Pipeline // 단계별 실행 (완료)
-//!         calibrate() → build_circuit() → schedule() → optimize()
-//!         run() - 전체 파이프라인
-//! ```
-//!
 //! ## Quick Start
 //!
 //! ```rust
@@ -75,13 +61,13 @@
 // Module Declarations
 // ============================================================================
 
-/// Configuration (Gantree: L7_Integration → NisoConfig)
+/// Configuration (Gantree: L7_Integration ??NisoConfig)
 pub mod config;
 
-/// Optimizer (Gantree: L7_Integration → NisoOptimizer)
+/// Optimizer (Gantree: L7_Integration ??NisoOptimizer)
 pub mod optimizer;
 
-/// Pipeline (Gantree: L7_Integration → Pipeline)
+/// Pipeline (Gantree: L7_Integration ??Pipeline)
 pub mod pipeline;
 
 // ============================================================================
@@ -98,7 +84,7 @@ pub use pipeline::{Pipeline, PipelineStage, PipelineState};
 // Prelude
 // ============================================================================
 
-/// Convenient imports for common use cases
+// Convenient imports below
 pub mod prelude {
     //! Prelude module for convenient imports
     //!
